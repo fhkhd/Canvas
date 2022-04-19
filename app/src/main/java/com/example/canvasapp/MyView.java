@@ -77,11 +77,16 @@ public class MyView extends View
 //        canvas.drawBitmap(bitmap, getLeft()/2, getTop()/2, paint);
 
 
+        // for image
         Rect imageBounds = canvas.getClipBounds();  // Adjust this for where you want it
-
-        imageBounds.set((2*getWidth())/3 ,getHeight()/10,getWidth()-50 , (getHeight()/3)-50);
+        imageBounds.set((3*x)/4 ,y/6,x-50 , (y/3)-50);
         mCustomImage.setBounds(imageBounds);
         mCustomImage.draw(canvas);
+
+
+        paint.setTextAlign(Paint.Align.CENTER);
+        paint.setTextSize(100);
+        canvas.drawText("title",x/2, y/2 ,paint);
 
 
 
