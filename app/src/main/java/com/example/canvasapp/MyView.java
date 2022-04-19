@@ -31,7 +31,7 @@ public class MyView extends View
     private int mColorBackground;
     private int mColorRectangle;
     private int mColorAccent;
-    Drawable mCustomImage;
+    Drawable mCustomImage , image;
 
 
 
@@ -43,6 +43,7 @@ public class MyView extends View
         super(context);
         paint = new Paint();
         mCustomImage = context.getResources().getDrawable(R.drawable.shaparak);
+        image = context.getResources().getDrawable(R.drawable.irankish);
 
     }
     @Override
@@ -83,10 +84,16 @@ public class MyView extends View
         mCustomImage.setBounds(imageBounds);
         mCustomImage.draw(canvas);
 
+        // for image
+//        Rect imageBounds2 = canvas.getClipBounds();  // Adjust this for where you want it
+        imageBounds.set(50 ,y/6,x/4 , (y/3)-50);
+        image.setBounds(imageBounds);
+        image.draw(canvas);
+
 
         paint.setTextAlign(Paint.Align.CENTER);
         paint.setTextSize(100);
-        canvas.drawText("title",x/2, y/2 ,paint);
+        canvas.drawText("عنوان",x/2, y/4 ,paint);
 
 
 
