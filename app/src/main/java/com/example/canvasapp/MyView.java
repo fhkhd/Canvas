@@ -146,17 +146,46 @@ public class MyView extends View
 
 //        ArrayList<String> k = new ArrayList<>();
 
+//        String[] k = new String[kalameh.length/10];
+//        for (int i = 0; i < k.length; i++) {
+//            for (int j = i*10 ; j < 10*(i+1); j++) {
+//                k[i] += kalameh[j] +" ";
+//                if(i == (k.length-1) && j == ((10*(i+1))-1)){
+//                    for (int z = j+1 ; z < kalameh.length; z++) {
+//                        k[i] += kalameh[z];
+//                    }
+//                }
+//            }
+//        }
+
+        int charlimit = 30;
         String[] k = new String[kalameh.length/10];
+        String lastLine = null;
         for (int i = 0; i < k.length; i++) {
             for (int j = i*10 ; j < 10*(i+1); j++) {
-                k[i] += kalameh[j] +" ";
-                if(i == (k.length-1) && j == ((10*(i+1))-1)){
-                    for (int z = j+1 ; z < kalameh.length; z++) {
-                        k[i] += kalameh[z];
+                if(k[i] != null && k[i].length() > charlimit && i != (k.length-1)) {
+                    i++;
+                    k[i] += kalameh[j] +" ";
+                }else
+                if(k[i] != null && k[i].length() > charlimit && i == (k.length-1)){
+                    lastLine += kalameh[j] + " ";
+                    if(j == ((10*(i+1))-1)){
+                        for (int z = j+1 ; z < kalameh.length; z++) {
+                            lastLine += kalameh[z] + " ";
+                        }
                     }
                 }
+                else
+                    k[i] += kalameh[j] +" ";
+
+//                if( && i == (k.length-1) && j == ((10*(i+1))-1)){
+//                        for (int z = j+1 ; z < kalameh.length; z++) {
+//                            k[i] += kalameh[z] +" ";
+//                        }
+//                    }
             }
         }
+
 
 
 
@@ -188,9 +217,11 @@ public class MyView extends View
 //        }
 
         for (int i = 0; i < k.length; i++) {
-            Log.e("qqqqsss", "onDraw: "+ k[i] );
-            setText(Color.BLACK,28, Paint.Align.RIGHT, typeface, k[i] ,x-20 , (y*1.5f)/18, paint, canvas);
-
+            Log.e("qqqqsss", "sum " +i+ ": "+ k[i] );
+//            setText(Color.BLACK,28, Paint.Align.RIGHT, typeface, k[i] ,x-20 , (y*1.5f)/18, paint, canvas);
+        }
+        if(lastLine != null){
+            Log.e("qqqqsss", "lastLine: " + lastLine );
 
         }
 
