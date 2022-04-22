@@ -17,6 +17,9 @@ import android.widget.ImageView;
 
 import androidx.core.content.res.ResourcesCompat;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class MyView extends View
 {
 
@@ -34,7 +37,7 @@ public class MyView extends View
     private int mColorRectangle;
     private int mColorAccent;
     Drawable mCustomImage , image;
-
+    private Typeface typeface;
 
 
 
@@ -46,6 +49,8 @@ public class MyView extends View
         paint = new Paint();
         mCustomImage = context.getResources().getDrawable(R.drawable.ic_shaparak);
         image = context.getResources().getDrawable(R.drawable.ic_irankish);
+        Typeface typeface = Typeface.create(Typeface.createFromAsset(context.getAssets(), "fonts/iran_sans.ttf"), Typeface.BOLD);
+
 
     }
     @Override
@@ -101,16 +106,106 @@ public class MyView extends View
         canvas.drawText("77110" , x/2 ,(7*y)/24 , paint);
 
 
+        setText(Color.BLACK,25, Paint.Align.CENTER, typeface,"کارت اعتباری ایران کیش" ,x/2 , (y*3)/18 , paint, canvas);
+        setText(Color.BLACK,25, Paint.Align.CENTER, typeface,"1688" ,x/2 , (y* 5.5f)/18, paint, canvas);
+
+        setText(Color.BLACK,25, Paint.Align.RIGHT, typeface,"تست شاپرک" ,x-20 , (y*5.5f)/18, paint, canvas);
+        setText(Color.BLACK,25, Paint.Align.LEFT, typeface,"Tel : 0251556787" ,20 , (y*5.5f)/18, paint, canvas);
+
+
+        setText(Color.BLACK,28, Paint.Align.RIGHT, typeface,"خرید" ,x-20 , (y*6.5f)/18, paint, canvas);
+        setText(Color.BLACK,28, Paint.Align.LEFT, typeface,"رسید مشتری" ,20 , (y*6.5f)/18, paint, canvas);
+        setText(Color.BLACK,28, Paint.Align.RIGHT, typeface,"پایانه" ,x-20 , (y*7.5f)/18, paint, canvas);
+        setText(Color.BLACK,28, Paint.Align.RIGHT, typeface,"بانک مسکن" ,x-20 , (y*8.5f)/18, paint, canvas);
+        setText(Color.BLACK,28, Paint.Align.RIGHT, typeface,"1401/1/29" ,x-20 , (y*9.5f)/18, paint, canvas);
+        setText(Color.BLACK,28, Paint.Align.RIGHT, typeface,"پیگیری" ,x-20 , (y*10.5f)/18, paint, canvas);
+
+        setText(Color.BLACK,25, Paint.Align.LEFT, typeface,"98088" ,20 , (y*7.5f)/18, paint, canvas);
+        setText(Color.BLACK,25, Paint.Align.LEFT, typeface,"0574446876" ,20 , (y*8.5f)/18, paint, canvas);
+        setText(Color.BLACK,25, Paint.Align.LEFT, typeface,"16:54" ,20 , (y*9.5f)/18, paint, canvas);
+        setText(Color.BLACK,25, Paint.Align.LEFT, typeface,"109" ,20 , (y*10.5f)/18, paint, canvas);
+
+        setText(Color.BLACK,25, Paint.Align.CENTER, typeface,"تراکنش نامعتبر است (91)" ,x/2 , (y*11.6f)/18, paint, canvas);
+
+
+
+
+
+        int max_word = 50;
+        int max_sum = 5;
+
         String string = "در صورت کسر وجه از حساب شما مبلغ مذکور ظرف 72 ساعت به حساب شما عودت خواهد شد در غیر اینصورت جهت پیگیری لطفا با شماره تلفن 1688 تماس حاصل کنید";
 
-        String[] stringArray = null;
+//        String string = "اگر می خواهید نمای سفارشی خود را در اندروید از صفر ایجاد کنید، دانستن اینکه چه توابعی برای رسم در موجود است بسیار مفید است.";
 
-//        String[] strArr = null;
+        String[] kalameh = string.split(" ");
 
-        for (int i = 1; i < 3; i++) {
-            stringArray = string.split(String.valueOf(string.charAt(i*47)) );
+        ArrayList<String> s = new ArrayList<>(Arrays.asList(kalameh));
+        ArrayList<String> line = new ArrayList<>();
+
+
+//        ArrayList<String> k = new ArrayList<>();
+
+        String[] k = new String[kalameh.length/10];
+        for (int i = 0; i < k.length; i++) {
+            for (int j = i*10 ; j < 10*(i+1); j++) {
+                k[i] += kalameh[j] +" ";
+                if(i == (k.length-1) && j == ((10*(i+1))-1)){
+                    for (int z = j+1 ; z < kalameh.length; z++) {
+                        k[i] += kalameh[z];
+                    }
+                }
+            }
+        }
+
+
+
+
+
+//        for (int i = 0; i < kalameh.length; i++) {
+//            if (i < 7){
+//                Log.e("qqqqssssp", "onDraw: "+i+" - "+kalameh[i] );
+//                k[0] = k[0] +" "+ kalameh[i];
+//            }else if (i < 14){
+//                k[1] = k[1] +" "+ kalameh[i];
+//            }else {
+//                k[2] = k[2] +" "+ kalameh[i];
+//            }
+//        }
+
+//        for (int i = 0; i < s.size(); i++) {
+//            if (line.isEmpty()){
+//                line.add(s.get(i));
+//            }else {
+//                String[] k = line.get(i).split(" ");
+//                if (line.get(i).length() < max_word && k.length < max_sum){
+//                    String l = line.get(i) + s.get(i);
+//                    line.set(i, l);
+//                }else {
+//                    line.add(s.get(i));
+//                }
+//            }
+//        }
+
+        for (int i = 0; i < k.length; i++) {
+            Log.e("qqqqsss", "onDraw: "+ k[i] );
+            setText(Color.BLACK,28, Paint.Align.RIGHT, typeface, k[i] ,x-20 , (y*1.5f)/18, paint, canvas);
+
 
         }
+
+
+//        String[] stringArray = null;
+////        String[] strArr = null;
+//
+//        for (int i = 1; i < 3; i++) {
+//            stringArray = string.split(String.valueOf(string.charAt(i*47)) );
+//
+//        }
+//        for (int i = 0; i < stringArray.length ; i++) {
+//            Log.e("arrr", "onDraw: " + i +"  :"+ stringArray[i] );
+//        }
+
 
 
 //        //Get post text
@@ -207,12 +302,6 @@ public class MyView extends View
 //            }
 //        }
 
-
-
-
-        for (int i = 0; i < stringArray.length ; i++) {
-            Log.e("arrr", "onDraw: " + i +"  :"+ stringArray[i] );
-        }
 //
 //            for (int i = 1; i < stringArray.length ; i++) {
 //            setText(Color.BLACK ,50 , Paint.Align.CENTER,stringArray[i] ,x/2 ,((12.5f+i)*y)/18 ,paint ,canvas );
@@ -253,10 +342,10 @@ public class MyView extends View
 //
 //    }
 
-    public void setText(int color, int size, Paint.Align align, String text, int x, float y, Paint paint , Canvas canvas ){
+    public void setText(int color, int size, Paint.Align align, Typeface typeface, String text, int x, float y, Paint paint , Canvas canvas ){
         paint.setColor(color);
         paint.setTextSize(size);
         paint.setTextAlign(align);
-//        paint.setTypeface(typeface);
+        paint.setTypeface(typeface);
         canvas.drawText(text, x, y, paint);}
 }
