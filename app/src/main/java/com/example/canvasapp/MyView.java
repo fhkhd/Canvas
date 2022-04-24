@@ -49,16 +49,18 @@ public class MyView extends View
         paint = new Paint();
         mCustomImage = context.getResources().getDrawable(R.drawable.ic_shaparak);
         image = context.getResources().getDrawable(R.drawable.ic_irankish);
-        Typeface typeface = Typeface.create(Typeface.createFromAsset(context.getAssets(), "fonts/iran_sans.ttf"), Typeface.BOLD);
 
 
     }
     @Override
     protected void onDraw(Canvas canvas)
     {
+        Typeface typeface = Typeface.create(Typeface.createFromAsset(getContext().getAssets(), "fonts/iran_sans.ttf"), Typeface.BOLD);
+
         super.onDraw(canvas);
         int x = getWidth();
         int y = getHeight();
+        int area = (x+y);
         int radius;
         radius = 200;
         paint.setStyle(Paint.Style.FILL);
@@ -97,35 +99,38 @@ public class MyView extends View
         image.setBounds(imageBounds);
         image.draw(canvas);
 
+//
+//        paint.setTextAlign(Paint.Align.CENTER);
+//        paint.setTextSize(80);
+//        canvas.drawText("عنوان",x/2, y/4 ,paint);
+//
+//        paint.setTextSize(80);
+//        canvas.drawText("77110" , x/2 ,(7*y)/24 , paint);
 
-        paint.setTextAlign(Paint.Align.CENTER);
-        paint.setTextSize(80);
-        canvas.drawText("عنوان",x/2, y/4 ,paint);
 
-        paint.setTextSize(80);
-        canvas.drawText("77110" , x/2 ,(7*y)/24 , paint);
-
-
-        setText(Color.BLACK,25, Paint.Align.CENTER, typeface,"کارت اعتباری ایران کیش" ,x/2 , (y*3)/18 , paint, canvas);
+        setText(Color.BLACK,25, Paint.Align.CENTER, typeface,"کارت اعتباری ایران کیش" ,x/2 , (y/4) , paint, canvas);
         setText(Color.BLACK,25, Paint.Align.CENTER, typeface,"1688" ,x/2 , (y* 5.5f)/18, paint, canvas);
 
-        setText(Color.BLACK,25, Paint.Align.RIGHT, typeface,"تست شاپرک" ,x-20 , (y*5.5f)/18, paint, canvas);
-        setText(Color.BLACK,25, Paint.Align.LEFT, typeface,"Tel : 0251556787" ,20 , (y*5.5f)/18, paint, canvas);
+        setText(Color.BLACK,25, Paint.Align.RIGHT, typeface,"تست شاپرک" ,x-50 , (y*5.5f)/18, paint, canvas);
+        setText(Color.BLACK,25, Paint.Align.LEFT, typeface,"Tel : 0251556787" ,50 , (y*5.5f)/18, paint, canvas);
 
 
-        setText(Color.BLACK,28, Paint.Align.RIGHT, typeface,"خرید" ,x-20 , (y*6.5f)/18, paint, canvas);
-        setText(Color.BLACK,28, Paint.Align.LEFT, typeface,"رسید مشتری" ,20 , (y*6.5f)/18, paint, canvas);
-        setText(Color.BLACK,28, Paint.Align.RIGHT, typeface,"پایانه" ,x-20 , (y*7.5f)/18, paint, canvas);
-        setText(Color.BLACK,28, Paint.Align.RIGHT, typeface,"بانک مسکن" ,x-20 , (y*8.5f)/18, paint, canvas);
-        setText(Color.BLACK,28, Paint.Align.RIGHT, typeface,"1401/1/29" ,x-20 , (y*9.5f)/18, paint, canvas);
-        setText(Color.BLACK,28, Paint.Align.RIGHT, typeface,"پیگیری" ,x-20 , (y*10.5f)/18, paint, canvas);
+        setText(Color.BLACK,28, Paint.Align.RIGHT, typeface,"خرید" ,x-50 , (y*6.5f)/18, paint, canvas);
+        setText(Color.BLACK,28, Paint.Align.LEFT, typeface,"رسید مشتری" ,50 , (y*6.5f)/18, paint, canvas);
+        setText(Color.BLACK,28, Paint.Align.RIGHT, typeface,"پایانه" ,x-50 , (y*7.5f)/18, paint, canvas);
+        setText(Color.BLACK,28, Paint.Align.RIGHT, typeface,"بانک مسکن" ,x-50 , (y*8.5f)/18, paint, canvas);
+        setText(Color.BLACK,28, Paint.Align.RIGHT, typeface,"1401/1/29" ,x-50 , (y*9.5f)/18, paint, canvas);
+        setText(Color.BLACK,28, Paint.Align.RIGHT, typeface,"پیگیری" ,x-50 , (y*10.5f)/18, paint, canvas);
 
-        setText(Color.BLACK,25, Paint.Align.LEFT, typeface,"98088" ,20 , (y*7.5f)/18, paint, canvas);
-        setText(Color.BLACK,25, Paint.Align.LEFT, typeface,"0574446876" ,20 , (y*8.5f)/18, paint, canvas);
-        setText(Color.BLACK,25, Paint.Align.LEFT, typeface,"16:54" ,20 , (y*9.5f)/18, paint, canvas);
-        setText(Color.BLACK,25, Paint.Align.LEFT, typeface,"109" ,20 , (y*10.5f)/18, paint, canvas);
+        setText(Color.BLACK,25, Paint.Align.LEFT, typeface,"98088" ,50 , (y*7.5f)/18, paint, canvas);
+        setText(Color.BLACK,25, Paint.Align.LEFT, typeface,"0574446876" ,50 , (y*8.5f)/18, paint, canvas);
+        setText(Color.BLACK,25, Paint.Align.LEFT, typeface,"16:54" ,50 , (y*9.5f)/18, paint, canvas);
+        setText(Color.BLACK,25, Paint.Align.LEFT, typeface,"109" ,50 , (y*10.5f)/18, paint, canvas);
 
         setText(Color.BLACK,25, Paint.Align.CENTER, typeface,"تراکنش نامعتبر است (91)" ,x/2 , (y*11.6f)/18, paint, canvas);
+
+        setText(Color.BLACK,28, Paint.Align.CENTER, typeface,"9284584/85  4838/345" ,x/2 , (y*15.6f)/18, paint, canvas);
+
 
 
 
@@ -146,45 +151,45 @@ public class MyView extends View
 
 //        ArrayList<String> k = new ArrayList<>();
 
-//        String[] k = new String[kalameh.length/10];
-//        for (int i = 0; i < k.length; i++) {
-//            for (int j = i*10 ; j < 10*(i+1); j++) {
-//                k[i] += kalameh[j] +" ";
-//                if(i == (k.length-1) && j == ((10*(i+1))-1)){
-//                    for (int z = j+1 ; z < kalameh.length; z++) {
-//                        k[i] += kalameh[z];
-//                    }
-//                }
-//            }
-//        }
-
-        int charlimit = 30;
         String[] k = new String[kalameh.length/10];
-        String lastLine = null;
         for (int i = 0; i < k.length; i++) {
             for (int j = i*10 ; j < 10*(i+1); j++) {
-                if(k[i] != null && k[i].length() > charlimit && i != (k.length-1)) {
-                    i++;
-                    k[i] += kalameh[j] +" ";
-                }else
-                if(k[i] != null && k[i].length() > charlimit && i == (k.length-1)){
-                    lastLine += kalameh[j] + " ";
-                    if(j == ((10*(i+1))-1)){
-                        for (int z = j+1 ; z < kalameh.length; z++) {
-                            lastLine += kalameh[z] + " ";
-                        }
+                k[i] += kalameh[j] +" ";
+                if(i == (k.length-1) && j == ((10*(i+1))-1)){
+                    for (int z = j+1 ; z < kalameh.length; z++) {
+                        k[i] += kalameh[z];
                     }
                 }
-                else
-                    k[i] += kalameh[j] +" ";
-
-//                if( && i == (k.length-1) && j == ((10*(i+1))-1)){
-//                        for (int z = j+1 ; z < kalameh.length; z++) {
-//                            k[i] += kalameh[z] +" ";
-//                        }
-//                    }
             }
         }
+//
+//        int charlimit = 30;
+//        String[] k = new String[kalameh.length/10];
+//        String lastLine = null;
+//        for (int i = 0; i < k.length; i++) {
+//            for (int j = i*10 ; j < 10*(i+1); j++) {
+//                if(k[i] != null && k[i].length() > charlimit && i != (k.length-1)) {
+//                    i++;
+//                    k[i] += kalameh[j] +" ";
+//                }else
+//                if(k[i] != null && k[i].length() > charlimit && i == (k.length-1)){
+//                    lastLine += kalameh[j] + " ";
+//                    if(j == ((10*(i+1))-1)){
+//                        for (int z = j+1 ; z < kalameh.length; z++) {
+//                            lastLine += kalameh[z] + " ";
+//                        }
+//                    }
+//                }
+//                else
+//                    k[i] += kalameh[j] +" ";
+//
+////                if( && i == (k.length-1) && j == ((10*(i+1))-1)){
+////                        for (int z = j+1 ; z < kalameh.length; z++) {
+////                            k[i] += kalameh[z] +" ";
+////                        }
+////                    }
+//            }
+//        }
 
 
 
@@ -218,12 +223,12 @@ public class MyView extends View
 
         for (int i = 0; i < k.length; i++) {
             Log.e("qqqqsss", "sum " +i+ ": "+ k[i] );
-//            setText(Color.BLACK,28, Paint.Align.RIGHT, typeface, k[i] ,x-20 , (y*1.5f)/18, paint, canvas);
+            setText(Color.BLACK,25, Paint.Align.CENTER, typeface, k[i] ,x/2 , (y*(12.5f+i))/18, paint, canvas);
         }
-        if(lastLine != null){
-            Log.e("qqqqsss", "lastLine: " + lastLine );
-
-        }
+//        if(lastLine != null){
+//            Log.e("qqqqsss", "lastLine: " + lastLine );
+//
+//        }
 
 
 //        String[] stringArray = null;
