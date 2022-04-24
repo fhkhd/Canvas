@@ -36,7 +36,7 @@ public class MyView extends View
     private int mColorBackground;
     private int mColorRectangle;
     private int mColorAccent;
-    Drawable mCustomImage , image;
+    Drawable mCustomImage , image , phoneic;
     private Typeface typeface;
 
 
@@ -49,6 +49,7 @@ public class MyView extends View
         paint = new Paint();
         mCustomImage = context.getResources().getDrawable(R.drawable.ic_shaparak);
         image = context.getResources().getDrawable(R.drawable.ic_irankish);
+        phoneic = context.getResources().getDrawable(R.drawable.phoneic);
 
 
     }
@@ -56,6 +57,8 @@ public class MyView extends View
     protected void onDraw(Canvas canvas)
     {
         Typeface typeface = Typeface.create(Typeface.createFromAsset(getContext().getAssets(), "fonts/iran_sans.ttf"), Typeface.BOLD);
+        Typeface typefaceNumber = Typeface.create(Typeface.createFromAsset(getContext().getAssets(), "fonts/irsansfanum.ttf"), Typeface.BOLD);
+
 
         super.onDraw(canvas);
         int x = getWidth();
@@ -74,11 +77,14 @@ public class MyView extends View
 //        canvas.drawCircle(0,0, radius, paint);
 //        canvas.drawCircle(x/2f, (2*y) /3 , radius, paint);
 
-        canvas.drawLine(50,y/3f, x-50 , y/3f,paint);
+        canvas.drawLine(0,y/3f, x , y/3f,paint);
 
-        canvas.drawLine(50,(y*2)/3f, x-50 , (y*2)/3f,paint);
+        canvas.drawLine(0,(y*2)/3f, x , (y*2)/3f,paint);
 
-        canvas.drawLine(50,(y*11)/18f, x-50 , (y*11)/18f,paint);
+        canvas.drawLine(0,(y*11)/18f, x , (y*11)/18f,paint);
+
+        canvas.drawLine(0, (y * 15) / 18, x , (y * 15) / 18, paint);
+
 
 
 //        Bitmap bitmap= BitmapFactory.decodeResource(getResources(), R.drawable.shaparak);
@@ -99,6 +105,10 @@ public class MyView extends View
         image.setBounds(imageBounds);
         image.draw(canvas);
 
+        imageBounds.set((x/2)-2*(y/35) ,(y/4),(x/2)-(y/35), (y/4)+(y/35));
+        phoneic.setBounds(imageBounds);
+        phoneic.draw(canvas);
+
 //
 //        paint.setTextAlign(Paint.Align.CENTER);
 //        paint.setTextSize(80);
@@ -108,28 +118,28 @@ public class MyView extends View
 //        canvas.drawText("77110" , x/2 ,(7*y)/24 , paint);
 
 
-        setText(Color.BLACK,25, Paint.Align.CENTER, typeface,"کارت اعتباری ایران کیش" ,x/2 , (y/4) , paint, canvas);
-        setText(Color.BLACK,25, Paint.Align.CENTER, typeface,"1688" ,x/2 , (y* 5.5f)/18, paint, canvas);
+        setText(Color.BLACK,25, Paint.Align.CENTER, typeface,"کارت اعتباری ایران کیش" ,x/2 , (y * 4) / 18 , paint, canvas);
+        setText(Color.BLACK,25, Paint.Align.CENTER, typefaceNumber,"1688" ,x/2 , (y* 4.85f)/18, paint, canvas);
 
-        setText(Color.BLACK,25, Paint.Align.RIGHT, typeface,"تست شاپرک" ,x-50 , (y*5.5f)/18, paint, canvas);
-        setText(Color.BLACK,25, Paint.Align.LEFT, typeface,"Tel : 0251556787" ,50 , (y*5.5f)/18, paint, canvas);
+        setText(Color.BLACK, 28, Paint.Align.RIGHT, typeface, "تست شاپرک", x - 20, (y * 5.6f) / 18, paint, canvas);
+        setText(Color.BLACK, 28, Paint.Align.LEFT, typefaceNumber, "Tel : 0251556787", 20, (y * 5.6f) / 18, paint, canvas);
 
 
-        setText(Color.BLACK,28, Paint.Align.RIGHT, typeface,"خرید" ,x-50 , (y*6.5f)/18, paint, canvas);
-        setText(Color.BLACK,28, Paint.Align.LEFT, typeface,"رسید مشتری" ,50 , (y*6.5f)/18, paint, canvas);
-        setText(Color.BLACK,28, Paint.Align.RIGHT, typeface,"پایانه" ,x-50 , (y*7.5f)/18, paint, canvas);
-        setText(Color.BLACK,28, Paint.Align.RIGHT, typeface,"بانک مسکن" ,x-50 , (y*8.5f)/18, paint, canvas);
-        setText(Color.BLACK,28, Paint.Align.RIGHT, typeface,"1401/1/29" ,x-50 , (y*9.5f)/18, paint, canvas);
-        setText(Color.BLACK,28, Paint.Align.RIGHT, typeface,"پیگیری" ,x-50 , (y*10.5f)/18, paint, canvas);
+        setText(Color.BLACK, 28, Paint.Align.RIGHT, typeface, "خرید", x - 20, (y * 6.5f) / 18, paint, canvas);
+        setText(Color.BLACK, 28, Paint.Align.LEFT, typeface, "رسید مشتری", 20, (y * 6.5f) / 18, paint, canvas);
+        setText(Color.BLACK, 28, Paint.Align.RIGHT, typeface, "پایانه", x - 20, (y * 7.5f) / 18, paint, canvas);
+        setText(Color.BLACK, 28, Paint.Align.RIGHT, typeface, "بانک مسکن", x - 20, (y * 8.5f) / 18, paint, canvas);
+        setText(Color.BLACK, 28, Paint.Align.RIGHT, typefaceNumber, "1401/1/29", x - 20, (y * 9.5f) / 18, paint, canvas);
+        setText(Color.BLACK, 28, Paint.Align.RIGHT, typeface, "پیگیری", x - 20, (y * 10.5f) / 18, paint, canvas);
 
-        setText(Color.BLACK,25, Paint.Align.LEFT, typeface,"98088" ,50 , (y*7.5f)/18, paint, canvas);
-        setText(Color.BLACK,25, Paint.Align.LEFT, typeface,"0574446876" ,50 , (y*8.5f)/18, paint, canvas);
-        setText(Color.BLACK,25, Paint.Align.LEFT, typeface,"16:54" ,50 , (y*9.5f)/18, paint, canvas);
-        setText(Color.BLACK,25, Paint.Align.LEFT, typeface,"109" ,50 , (y*10.5f)/18, paint, canvas);
+        setText(Color.BLACK, 28, Paint.Align.LEFT, typefaceNumber, "98088", 20, (y * 7.5f) / 18, paint, canvas);
+        setText(Color.BLACK, 28, Paint.Align.LEFT, typefaceNumber, "0574446876", 20, (y * 8.5f) / 18, paint, canvas);
+        setText(Color.BLACK, 28, Paint.Align.LEFT, typefaceNumber, "16:54", 20, (y * 9.5f) / 18, paint, canvas);
+        setText(Color.BLACK, 28, Paint.Align.LEFT, typefaceNumber, "109", 20, (y * 10.5f) / 18, paint, canvas);
 
-        setText(Color.BLACK,25, Paint.Align.CENTER, typeface,"تراکنش نامعتبر است (91)" ,x/2 , (y*11.6f)/18, paint, canvas);
+        setText(Color.BLACK, 25, Paint.Align.CENTER, typefaceNumber, "تراکنش نامعتبر است (91)", x / 2, (y * 11.6f) / 18, paint, canvas);
 
-        setText(Color.BLACK,28, Paint.Align.CENTER, typeface,"9284584/85  4838/345" ,x/2 , (y*15.6f)/18, paint, canvas);
+        setText(Color.BLACK,28, Paint.Align.CENTER, typefaceNumber,"9284584/85  4838/345" ,x/2 , (y*15.6f)/18, paint, canvas);
 
 
 
@@ -139,7 +149,7 @@ public class MyView extends View
         int max_word = 50;
         int max_sum = 5;
 
-        String string = "در صورت کسر وجه از حساب شما مبلغ مذکور ظرف 72 ساعت به حساب شما عودت خواهد شد در غیر اینصورت جهت پیگیری لطفا با شماره تلفن 1688 تماس حاصل کنید";
+        String string = "در صورت کسر وجه از حساب شما مبلغ مذکور ظرف 72 ساعت به حساب شما عودت خواهد شد در غیر اینصورت جهت پیگیری لطفا با شماره تلفن 1688 تماس حاصل کنید.";
 
 //        String string = "اگر می خواهید نمای سفارشی خود را در اندروید از صفر ایجاد کنید، دانستن اینکه چه توابعی برای رسم در موجود است بسیار مفید است.";
 
@@ -153,6 +163,7 @@ public class MyView extends View
 
         String[] k = new String[kalameh.length/10];
         for (int i = 0; i < k.length; i++) {
+            k[i] = "";
             for (int j = i*10 ; j < 10*(i+1); j++) {
                 k[i] += kalameh[j] +" ";
                 if(i == (k.length-1) && j == ((10*(i+1))-1)){
@@ -161,6 +172,7 @@ public class MyView extends View
                     }
                 }
             }
+
         }
 //
 //        int charlimit = 30;
@@ -223,7 +235,7 @@ public class MyView extends View
 
         for (int i = 0; i < k.length; i++) {
             Log.e("qqqqsss", "sum " +i+ ": "+ k[i] );
-            setText(Color.BLACK,25, Paint.Align.CENTER, typeface, k[i] ,x/2 , (y*(12.5f+i))/18, paint, canvas);
+            setText(Color.BLACK,25, Paint.Align.CENTER, typefaceNumber, k[i] ,x/2 , (y*(12.5f+i))/18, paint, canvas);
         }
 //        if(lastLine != null){
 //            Log.e("qqqqsss", "lastLine: " + lastLine );
